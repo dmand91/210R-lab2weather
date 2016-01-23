@@ -1,0 +1,15 @@
+body{
+
+    background: url(http://villahippocampo.com/images/background_secondary_v2.jpg);
+    background-repeat: no-repeat;
+}
+#title{
+	font-size:x-large;
+	text-align: center;
+	
+}
+.form{
+     font-size:medium;
+      text-align: center;
+
+}
