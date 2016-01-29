@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>City Finder</title>
@@ -7,7 +8,7 @@
 </head>
 <body>
 
-<div id ="title">Choose a City to See the Weather</div>
+<div id ="title">Choose a City to See the Weather</div><br><br>
 <form class="form">
 Enter A Utah City: <input type="text" id="cityfield" value="">
 <input id="button" type="submit" value="Submit">
@@ -17,6 +18,10 @@ Suggestion: <span id="txtHint">Empty</span>
 <textarea id="dispcity">No City</textarea>
 <p>Current Weather</p>
 <div id="weather">No weather</div>
+
+<div id="picture"></div>
+
+
 
 
 
@@ -72,8 +77,30 @@ myurl += value;
 
 	var newTitle;
 	newTitle=value + "'s Current Weather";
+
       $("#title").html(newTitle);
+
+      var newCss= "background:url (https://wtpho.files.wordpress.com/2012/07/20120709-075556.jpg);     background-repeat: no-repeat;";
+
+
+      var number = Math.floor(Math.random() * 4) + 1  
+      //var number=2; 
+
+      if(number===2){
+        $("#picture").html("<img src='http://vignette3.wikia.nocookie.net/alomarr/images/4/4a/Raining_fire.jpg/revision/latest?cb=20120825170333' height='200' width='300'>");
+      }
+      if(number===3){
+        $("#picture").html("<img src='http://img1.jurko.net/wall/paper/TornadoLightning.jpg' height='200' width='300'>");
+      }
+      if(number===4){
+        $("#picture").html("<img src='http://kidslovescience.weebly.com/uploads/6/2/0/1/6201848/5122497.jpg?413' height='200' width='300'>");
+      }
     }
+
+
+
+   
+
   });
 
 
