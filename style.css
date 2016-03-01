@@ -1,25 +1,105 @@
-body{
+#map {
+    margin-right: auto;
+    margin-left: auto;
+    height: 60%;
+    width: 80%;
+  }
+  #floating-panel {
 
-    background: url(http://villahippocampo.com/images/background_secondary_v2.jpg);
-    background-repeat: no-repeat;
+margin-right: auto;
+    margin-left: auto;
+        top: 25%;
+    left: 25%;
+    z-index: 5;
+    width: 40%;
+    background-color: transparent;
+    padding: 5px;
+    
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+
+body{
+	color: white;
+    background: url(http://www.wallpaperjosh.xyz/wp-content/uploads/2016/01/cool-backgrounds-CBH015.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+ html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+h1{
+	text-align: center;
+}
+.wrapper{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 80%;
+
+
+
+}
+#txtHint{
+	max-width: 20%;
+	text-align: center;
+
+}
+.list{
+
+	list-style-type:none;
+	text-align: left;
+	max-width: 40%;
+	
+     margin-left: auto;
+	margin-right: auto;
+
+
 }
 #title{
+	text-align: center;
 	font-size:x-large;
 	text-align: left;
 	
 }
 .form{
      font-size:medium;
-      text-align: left;
+      text-align: center;
+
+}
+
+.picwrapper{
+	 
+   text-align: center;
+    margin-left: auto;
+	margin-right: auto;
+	width:20%;
+	 max-width: 20%;
+	padding: 10px;
+	border:1px solid white; 
 
 }
 #picture{
+   text-align: center;
+      margin-left: auto;
+	margin-right: auto;
+	width:20%;
+	 max-width: 20%;
+     
+	
 
-	 margin: auto;    
-	 width:300px;
-	 max-width: 300px;
-
-	 padding: 10px;
-	   width: 300px;
 
 }
+
+
+

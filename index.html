@@ -3,27 +3,43 @@
 <head>
 <title>City Finder</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFjQBgyFl2n2rZIYtj4FddwU5wAv9OaZc&signed_in=true&callback=initMap"></script>
+<script src="script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+
 
 </head>
 <body>
 
-<div id ="title">Choose a City to See the Weather</div><br><br>
-<form class="form">
-Enter A Utah City: <input type="text" id="cityfield" value="">
-<input id="button" type="submit" value="Submit">
-Suggestion: <span id="txtHint">Empty</span>
-</form>
-<p>City</p>
-<textarea id="dispcity">No City</textarea>
-<p>Current Weather</p>
-<div id="weather">No weather</div>
 
-<div id="picture"></div>
+    <div id ="title"><h1>Choose a City to See the Weather</h1></div><br><br>
+
+ <div class="wrapper"> 
+    <form class="form">
+    Enter A Utah City: <input type="text" id="cityfield" value="">
+    <input id="button" type="submit" value="Submit">
+    Suggestion: <span id="txtHint">Empty</span>
+    </form>
 
 
+    <p>City</p>
+    <textarea id="dispcity">No City</textarea>
+    <p><h2>Current Weather</h2></p>
+    <div id="weather">No weather</div>
 
 
+
+
+</div>
+ 
+      <div id="picture"></div>
+
+      <div id="floating-panel">
+        <input id="address" type="textbox" value="">
+        <input id="submit" type="button" value="Search">
+      </div>
+      <div id="map"></div>
 
 </body>
 <script>
@@ -32,7 +48,7 @@ $( "#cityfield" ).keyup(function() {
   var url = "https://students.cs.byu.edu/~clement/CS360/ajax/getcity.cgi?q="+$("#cityfield").val();
 $.getJSON(url,function(data) {
     var everything;
-    everything = "<ul>";
+    everything = "<ul class = 'list'>";
     $.each(data, function(i,item) {
       everything += "<li> "+data[i].city;
     });
@@ -54,6 +70,11 @@ $("#button").click(function(e){
   console.log(value);
   e.preventDefault();
 	 $("#dispcity").text(value);
+    document.getElementById("address").value = value + ", UT";
+    document.getElementById("submit").click();
+
+   
+
 
 
  var myurl="https://api.wunderground.com/api/b96962310e363a8f/geolookup/conditions/q/Utah/"
@@ -68,7 +89,7 @@ myurl += value;
       var location = parsed_json['location']['city'];
       var temp_string = parsed_json['current_observation']['temperature_string'];
       var current_weather = parsed_json['current_observation']['weather'];
-      everything = "<ul>";
+      everything = "<ul class = 'list'>";
       everything += "<li>Location: "+location;
       everything += "<li>Temperature: "+temp_string;
       everything += "<li>Weather: "+current_weather;
@@ -78,33 +99,21 @@ myurl += value;
 	var newTitle;
 	newTitle=value + "'s Current Weather";
 
-      $("#title").html(newTitle);
+      $("#title").html("<h1>"+newTitle+"</h1>");
 
       var newCss= "background:url (https://wtpho.files.wordpress.com/2012/07/20120709-075556.jpg);     background-repeat: no-repeat;";
 
 
-      var number = Math.floor(Math.random() * 4) + 1  
-      //var number=2; 
 
-      if(number===2){
-        $("#picture").html("<img src='http://vignette3.wikia.nocookie.net/alomarr/images/4/4a/Raining_fire.jpg/revision/latest?cb=20120825170333' height='200' width='300'>");
-      }
-      if(number===3){
-        $("#picture").html("<img src='http://img1.jurko.net/wall/paper/TornadoLightning.jpg' height='200' width='300'>");
-      }
-      if(number===4){
-        $("#picture").html("<img src='http://kidslovescience.weebly.com/uploads/6/2/0/1/6201848/5122497.jpg?413' height='200' width='300'>");
-      }
     }
-
-
-
-   
 
   });
 
 
 });
+
+
+
 </script>
-</script>
+
 </html>
